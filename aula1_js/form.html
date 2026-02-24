@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="prog1.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="header">Calculadora de Quadrado e Cubo</h1>
+    <form class="" id="numeroForm" action="">
+        <div class="select-input">
+            <label for="operation">Escolha a operação: </label>
+            <select name="operation" id="operation">
+                <option value="quadrado">Quadrado</option>
+                <option value="cubo">Cubo</option>
+            </select>
+        </div>
+
+        <div class="container">
+            <label for="numero">Digite um número: </label>
+            <input class="inputDiferenciado" type="number" id="numero" name="numero" required>
+            <button class="btn primary btn" type="submit">Calcular</button>
+        </div>
+    </form>
+
+    <div class="result">
+        <p>O resultado é: <span id="resultado"></span></p>
+    </div>
+</body>
+</html>
