@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <section class="section-web">
+        <h1>Calculadora de Quadrado</h1>
+        <form id="numeroForm">
+            <label for="numero">Digite um número:</label>
+            <input type="number" id="numero" name="numero" required>
+            <label for="operacao">Escolha uma Operação:</label>
+            <select id="operacao">
+                <option value="quadrado">Quadrado</option>
+                <option value="cubo">Cubo</option>
+            </select>
+            <button class="btn btn-primary" type="submit">Calcular Quadrado</button>
+        </form>
+
+        <div class="card" style="width: 18rem;">
+            <img src="img/dobro.png" class="card-img-top" alt="imagem dobro">
+            <div class="card-body">
+            <h5 class="card-title">Calculo Quadrado de um Número</h5>
+            <p class="card-text" id="resultado"></p>
+            <a href="#" class="btn btn-primary">Voltar</a>
+            </div>
+        </div>
+    </section>
+    <!-- <p>O resultado é: <span id="resultado"></span></p> -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
