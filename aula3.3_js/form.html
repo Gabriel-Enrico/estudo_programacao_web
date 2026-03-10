@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="venda.css">
+    <title>Sistema de Vendas</title>
+</head>
+
+<body>
+    <h1>Sistema de Vendas</h1>
+    <div class="formulario">
+        <form id="form">
+            <div class="campo">
+                <label>Valor da Venda:</label>
+                <input type="number" id="valorVenda" placeholder="R$ 0,00">
+            </div>
+
+            <div class="campo">
+                <label>Quantidade de Parcelas:</label>
+                <input type="number" id="parcelas" placeholder="Ex: 3">
+            </div>
+
+            <div class="campo">
+                <label>Taxa de Juros (%):</label>
+                <input type="number" id="juros" placeholder="Ex: 2">
+            </div>
+
+            <div class="buttons">
+                <button type="button" onclick="preencherVetor()">Calcular</button>
+                <button type="button" onclick="limpar()">Limpar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="tabela">
+        <table id="tabela">
+            <tr>
+                <th>Parcela</th>
+                <th>Valor</th>
+                <th>Vencimento</th>
+            </tr>
+        </table>
+    </div>
+
+    <script src="venda.js"></script>
+</body>
+
+</html>

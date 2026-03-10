@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Calculadora de Parcelas com Juros</h1>
+    <form id="vendaForm">
+        <label for="valorTotal">Valor Total da Compra (R$):</label>
+        <input type="number" id="valorTotal" name="valorTotal" step="0.01" required>
+
+        <label for="parcelas">Número de Parcelas:</label>
+        <input type="number" id="parcelas" name="parcelas" min="1" required>
+
+        <label for="juros">Taxa de Juros Mensal (%):</label>
+        <input type="number" id="juros" name="juros" step="0.01" required>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    <h2>Resultado:</h2>
+    <p>Valor de cada parcela: <span id="valorParcela"></span></p>
+    <p>Valor total a ser pago: <span id="valorTotalPago"></span></p>
+</body>
+</html>
