@@ -1,51 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="venda.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sistema de Vendas</title>
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
-    <h1>Sistema de Vendas</h1>
-    <div class="formulario">
-        <form id="form">
+  <body>
+    <div class="bg-layer"></div>
+
+    <div class="page">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-eyebrow">v1.0.0 — sistema financeiro</div>
+        <h1>Sistema de <span>Vendas</span></h1>
+        <p class="header-sub">
+          Calcule parcelas com juros compostos em segundos
+        </p>
+      </header>
+
+      <!-- Main card -->
+      <div class="card">
+        <!-- macOS-style title bar -->
+        <div class="card-header">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="card-title">vendas.js — ativo</span>
+        </div>
+
+        <!-- Form -->
+        <div class="form-body">
+          <div class="fields-grid">
             <div class="campo">
-                <label>Valor da Venda:</label>
-                <input type="number" id="valorVenda" placeholder="R$ 0,00">
+              <label>Valor <span class="tag">R$</span></label>
+              <input type="number" id="valorVenda" placeholder="0,00" />
             </div>
-
             <div class="campo">
-                <label>Quantidade de Parcelas:</label>
-                <input type="number" id="parcelas" placeholder="Ex: 3">
+              <label>Parcelas <span class="tag">nº</span></label>
+              <input type="number" id="parcelas" placeholder="12" />
             </div>
-
             <div class="campo">
-                <label>Taxa de Juros (%):</label>
-                <input type="number" id="juros" placeholder="Ex: 2">
+              <label>Juros <span class="tag">%</span></label>
+              <input type="number" id="juros" placeholder="2,0" />
             </div>
+          </div>
 
-            <div class="buttons">
-                <button type="button" onclick="preencherVetor()">Calcular</button>
-                <button type="button" onclick="limpar()">Limpar</button>
+          <div class="action-row">
+            <button
+              class="btn-primary"
+              type="button"
+              onclick="preencherVetor()"
+            >
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <polyline points="1,8 6,13 15,3" />
+              </svg>
+              Calcular Parcelas
+            </button>
+            <button class="btn-secondary" type="button" onclick="limpar()">
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="3,4 4,14 12,14 13,4" />
+                <line x1="1" y1="4" x2="15" y2="4" />
+                <polyline points="6,4 6,2 10,2 10,4" />
+              </svg>
+              Limpar
+            </button>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Summary bar (shown after calculate) -->
+        <div class="summary-bar" id="summaryBar">
+          <div class="summary-item">
+            <span class="summary-label">Total</span>
+            <span class="summary-value" id="summaryTotal">—</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">Por parcela</span>
+            <span class="summary-value" id="summaryParcela">—</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">Juros totais</span>
+            <span class="summary-value amber" id="summaryJuros">—</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">Parcelas</span>
+            <span class="summary-value" id="summaryQtd">—</span>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="table-section">
+          <div class="table-wrap">
+            <table id="tabela">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Valor</th>
+                  <th>Vencimento</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+
+          <!-- Empty state -->
+          <div class="empty-state visible" id="emptyState">
+            <svg
+              class="empty-icon"
+              viewBox="0 0 40 40"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="6" y="10" width="28" height="22" rx="3" />
+              <line x1="6" y1="16" x2="34" y2="16" />
+              <line x1="13" y1="23" x2="27" y2="23" />
+              <line x1="13" y1="27" x2="21" y2="27" />
+            </svg>
+            <div class="empty-title">Nenhuma parcela</div>
+            <div class="empty-sub">
+              Preencha os campos acima e clique em Calcular
             </div>
-        </form>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="card-footer">
+          <span class="footer-info">
+            <span id="footerCount">0</span> parcelas registradas
+          </span>
+          <div class="status-pill">
+            <div class="status-dot"></div>
+            online
+          </div>
+        </div>
+      </div>
+      <!-- .card -->
     </div>
+    <!-- .page -->
 
-    <div class="tabela">
-        <table id="tabela">
-            <tr>
-                <th>Parcela</th>
-                <th>Valor</th>
-                <th>Vencimento</th>
-            </tr>
-        </table>
-    </div>
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
 
-    <script src="venda.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
