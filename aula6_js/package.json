@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "firebase": "^11.10.0"
+  },
+  "name": "cadastro-js-firebase",
+  "version": "1.0.0",
+  "main": "crud.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": ""
+}
